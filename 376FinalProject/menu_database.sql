@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS menu_database;
 CREATE DATABASE menu_database;
 USE menu_database;
 
-CREATE TABLE appetizer (
+CREATE TABLE appetizers (
     ID int NOT NULL AUTO_INCREMENT,
     title varchar(50) NOT NULL,
     descript varchar(500) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE appetizer (
     PRIMARY KEY (ID)
 );
 
-INSERT INTO appetizer VALUES 
+INSERT INTO appetizers VALUES 
     (1, 'Nachos', 'Toasted chips smothered in warm creamy cheese, lettuce, pico de gallo, black beans, sour cream, and salsa','https://images-gmi-pmc.edge-generalmills.com/4f5b624d-c9d0-4a75-acfe-fadbe40a7d1e.jpg', 8.99 ),
     (2, 'Mozzarella sticks', 'Mozzarella cheese battered and deep fried, served with marinara sauce', 'https://www.foxvalleyfoodie.com/wp-content/uploads/2015/07/deep-fried-mozzarella-sticks-stretching.jpg', 7.99),
     (3, 'Fried Pickles', 'Thinly sliced pickles battered and deep fried, served with chipotle ranch', 'http://d2gtpjxvvd720b.cloudfront.net/system/newsletter_item/social_image/581/default_FB-faux-fried-pickles-20170731-1302-26345-1633.jpg', 6.99 ),
@@ -73,7 +73,7 @@ INSERT INTO entrees VALUES
     (46, 'Berry Salad', 'Iceberg lettuce with mixed berries and a raspberry vinaigrette', 'https://tastesbetterfromscratch.com/wp-content/uploads/2018/04/Mixed-Greens-Berry-Salad-4.jpg', 'salad', 5.99);
 
 
-CREATE TABLE dessert (
+CREATE TABLE desserts (
     ID int NOT NULL AUTO_INCREMENT,
     title varchar(50) NOT NULL,
     descript varchar(50) NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE dessert (
     PRIMARY KEY (ID)
 );
 
-INSERT INTO dessert VALUES
+INSERT INTO desserts VALUES
     (47, 'Hot Brownie w/ Ice Cream', 'Warm fudge brownie with ice cream and chocolate fudge', 'http://www.recipesfab.com/wp-content/uploads/2016/11/Brownie-and-Ice-Cream-on-a-Sizzler-Recipe-by-Shireen-Anwar.jpg', 13.99),
     (48, 'Hot Cookie w/ Ice Cream', 'Hot chocolate chip cookie skillet with ice cream and chocolate fudge', 'https://s23209.pcdn.co/wp-content/uploads/2013/09/IMG_7781edit.jpg', 11.99),
     (49, 'Cheesecake', 'Creamy and rich cheesecake', 'https://d2gk7xgygi98cy.cloudfront.net/1820-3-large.jpg', 9.99),
@@ -109,18 +109,19 @@ INSERT INTO sides VALUES
 CREATE TABLE drinks (
     ID int NOT NULL AUTO_INCREMENT,
     title varchar(50) NOT NULL,
+    imageURL varchar(100) NOT NULL,
     price float(5) NOT NULL,
     PRIMARY KEY (ID)
 );
 
 INSERT INTO drinks VALUES
-    (58, 'Mountain Dew', 1.50),
-    (59, 'Pepsi', 1.50), 
-    (60, 'Lemonade', 1.50), 
-    (61, 'Pink Lemonade', 1.50), 
-    (62, 'Water', 0.00), 
-    (63, 'Iced Tea', 1.50),
-    (64, 'Fruit Punch', 1.50);
+    (58, 'Mountain Dew', 'http://www.mountaindew.com/assets/content/28968/77263/89833-grew-dew-diet-product.png', 1.50),
+    (59, 'Pepsi', 'https://st2.depositphotos.com/4431055/11854/i/950/depositphotos_118546758-stock-photo-pepsi-can-isolated.jpg', 1.50), 
+    (60, 'Lemonade', 'https://www.nestandglow.com/wp-content/uploads/2017/07/apple-cider-vinegar-lemonade.jpg', 1.50), 
+    (61, 'Pink Lemonade', 'https://www.couponclippingcook.com/wp-content/uploads/2017/07/13-Pink-Lemonade.jpg', 1.50), 
+    (62, 'Water', 'https://ak8.picdn.net/shutterstock/videos/15156688/thumb/1.jpg', 0.00), 
+    (63, 'Iced Tea', 'https://cdn.cpnscdn.com/static.coupons.com/ext/kitchme/images/recipes/600x400/arnold-palmer-lemonade-iced-tea_44551.jpg', 1.50),
+    (64, 'Fruit Punch', 'https://cdnimg.webstaurantstore.com/images/products/large/78273/1671980.jpg', 1.50);
 
 
 CREATE TABLE users (
@@ -141,10 +142,11 @@ CREATE TABLE orders (
     itemID int NOT NULL,
     itemName varchar(50) NOT NULL,
     itemPrice float(5) NOT NULL,
+    quantity int NOT NULL,
     PRIMARY KEY (ID)
 );
 
--- Create a user named ar_user
+-- Create a user named db_user
 GRANT SELECT, INSERT, UPDATE, DELETE
 ON *
 TO db_user@localhost
