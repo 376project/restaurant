@@ -5,7 +5,7 @@ USE menu_database;
 
 CREATE TABLE appetizers (
     ID int NOT NULL AUTO_INCREMENT,
-    title varchar(50) NOT NULL,
+    title varchar(100) NOT NULL,
     descript varchar(500) NOT NULL,
     imageURL varchar(500) NOT NULL,
     price float(5) NOT NULL,
@@ -30,9 +30,9 @@ INSERT INTO appetizers VALUES
 
 CREATE TABLE entrees (
     ID int NOT NULL AUTO_INCREMENT,
-    title varchar(50) NOT NULL,
-    descript varchar(50) NOT NULL,
-    imageURL varchar(100) NOT NULL,
+    title varchar(100) NOT NULL,
+    descript varchar(500) NOT NULL,
+    imageURL varchar(500) NOT NULL,
     category varchar(50) NOT NULL,
     price float(5) NOT NULL,
     PRIMARY KEY (ID)
@@ -75,9 +75,9 @@ INSERT INTO entrees VALUES
 
 CREATE TABLE desserts (
     ID int NOT NULL AUTO_INCREMENT,
-    title varchar(50) NOT NULL,
-    descript varchar(50) NOT NULL,
-    imageURL varchar(100) NOT NULL,
+    title varchar(100) NOT NULL,
+    descript varchar(500) NOT NULL,
+    imageURL varchar(500) NOT NULL,
     price float(5) NOT NULL,
     PRIMARY KEY (ID)
 );
@@ -92,9 +92,9 @@ INSERT INTO desserts VALUES
 
 CREATE TABLE sides (
     ID int NOT NULL AUTO_INCREMENT,
-    title varchar(50) NOT NULL,
-    descript varchar(50) NOT NULL,
-    imageURL varchar(100) NOT NULL,
+    title varchar(100) NOT NULL,
+    descript varchar(500) NOT NULL,
+    imageURL varchar(500) NOT NULL,
     price float(5) NOT NULL,
     PRIMARY KEY (ID)
 );
@@ -108,8 +108,8 @@ INSERT INTO sides VALUES
 
 CREATE TABLE drinks (
     ID int NOT NULL AUTO_INCREMENT,
-    title varchar(50) NOT NULL,
-    imageURL varchar(100) NOT NULL,
+    title varchar(100) NOT NULL,
+    imageURL varchar(500) NOT NULL,
     price float(5) NOT NULL,
     PRIMARY KEY (ID)
 );
@@ -126,8 +126,8 @@ INSERT INTO drinks VALUES
 
 CREATE TABLE users (
     ID int NOT NULL AUTO_INCREMENT,
-    email VARCHAR(40) NOT NULL UNIQUE,
-    password VARCHAR(40) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(500) NOT NULL,
     PRIMARY KEY (ID)
 );
 
