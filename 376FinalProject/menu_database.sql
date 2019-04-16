@@ -4,12 +4,12 @@ CREATE DATABASE menu_database;
 USE menu_database;
 
 CREATE TABLE appetizers (
-    ID int NOT NULL AUTO_INCREMENT,
+    Id int NOT NULL AUTO_INCREMENT,
     title varchar(100) NOT NULL,
     descript varchar(500) NOT NULL,
     imageURL varchar(500) NOT NULL,
     price float(5) NOT NULL,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (Id)
 );
 
 INSERT INTO appetizers VALUES 
@@ -29,18 +29,18 @@ INSERT INTO appetizers VALUES
     (14, 'Chicken Tortilla Soup', 'Southwest soup with chicken, cheese, tortilla strips, black beans, onions, tomatoes, and avocado', 'https://www.chelseasmessyapron.com/wp-content/uploads/2018/01/15-Minute-Cheesy-Chicken-Tortilla-Soup2.jpg', 4.99);
 
 CREATE TABLE entrees (
-    ID int NOT NULL AUTO_INCREMENT,
+    Id int NOT NULL AUTO_INCREMENT,
     title varchar(100) NOT NULL,
     descript varchar(500) NOT NULL,
     imageURL varchar(500) NOT NULL,
     category varchar(50) NOT NULL,
     price float(5) NOT NULL,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (Id)
 );
 
 INSERT INTO entrees VALUES 
     (15, 'Classic Burger', 'Ground beef patty with american cheese, lettuce, tomatoes, and mayo', 'https://tasteandsee.com/wp-content/uploads/2017/06/Easy-Pimento-Cheese-and-Bacon-Burger-EL-burger-great.jpg', 'burger', 9.99),
-    (16, 'SouthWest Burger', 'Ground beef patty with cheddar cheese, pico de gallo, guacamole, and chipotle ranch', 'https://www.afamilyfeast.com/wp-content/uploads/2017/07/Soutturkeyclubhwest-Burger.jpg', 'burger', 9.99),
+    (16, 'SouthWest Burger', 'Ground beef patty with cheddar cheese, pico de gallo, guacamole, and chipotle ranch', 'https://www.afamilyfeast.com/wp-content/uploads/2017/07/Southwest-Burger.jpg', 'burger', 9.99),
     (17, 'Breakfast Burger', 'Ground beef patty with bacon, a fried egg, and country gravy', 'https://www.layersofhappiness.com/wp-content/uploads/2016/04/breakfast-burger-sandwich-2.jpg', 'burger', 12.99),
     (18, 'Veggie Burger', 'Veggie patty with lettuce, tomato, onion, and pickles', 'https://minimalistbaker.com/wp-content/uploads/2015/07/AMAZING-GRILLABLE-Veggie-Burgers-Hearty-flavorful-and-hold-up-on-the-grill-or-skillet-vegan-veggieburger-grilling-dinner-healthy-recipe.jpg', 'burger', 10.99),
     (19, 'BBQ Burger', 'Ground beef patty with cheddar cheese,  bacon, pulled pork, onion straws, and honey bbq sauce', 'https://thecozyapron.com/wp-content/uploads/2016/06/bbq-meatloaf-burger_thecozyapron_06-27-16_1.jpg', 'burger', 11.99),
@@ -74,12 +74,12 @@ INSERT INTO entrees VALUES
 
 
 CREATE TABLE desserts (
-    ID int NOT NULL AUTO_INCREMENT,
+    Id int NOT NULL AUTO_INCREMENT,
     title varchar(100) NOT NULL,
     descript varchar(500) NOT NULL,
     imageURL varchar(500) NOT NULL,
     price float(5) NOT NULL,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (Id)
 );
 
 INSERT INTO desserts VALUES
@@ -91,7 +91,7 @@ INSERT INTO desserts VALUES
     (52, 'Coconut Pie', 'Delicious coconut cream pie', 'https://images-gmi-pmc.edge-generalmills.com/59a09632-ffa1-4ad2-bcd5-a64ab96b2945.jpg', 12.99);
 
 CREATE TABLE sides (
-    ID int NOT NULL AUTO_INCREMENT,
+    Id int NOT NULL AUTO_INCREMENT,
     title varchar(100) NOT NULL,
     descript varchar(500) NOT NULL,
     imageURL varchar(500) NOT NULL,
@@ -107,11 +107,11 @@ INSERT INTO sides VALUES
     (57, 'String Beans', 'Roasted strings beans covered in balsamic vinegar', 'https://images-gmi-pmc.edge-generalmills.com/cd2e3dd6-1a43-459c-8b03-c6dbe53bbd4d.jpg', 2.99);
 
 CREATE TABLE drinks (
-    ID int NOT NULL AUTO_INCREMENT,
+    Id int NOT NULL AUTO_INCREMENT,
     title varchar(100) NOT NULL,
     imageURL varchar(500) NOT NULL,
     price float(5) NOT NULL,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (Id)
 );
 
 INSERT INTO drinks VALUES
@@ -123,29 +123,19 @@ INSERT INTO drinks VALUES
     (63, 'Iced Tea', 'https://cdn.cpnscdn.com/static.coupons.com/ext/kitchme/images/recipes/600x400/arnold-palmer-lemonade-iced-tea_44551.jpg', 1.50),
     (64, 'Fruit Punch', 'https://cdnimg.webstaurantstore.com/images/products/large/78273/1671980.jpg', 1.50);
 
-
-CREATE TABLE users (
-    ID int NOT NULL AUTO_INCREMENT,
-    email VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(500) NOT NULL,
-    PRIMARY KEY (ID)
-);
-
-INSERT INTO users VALUES
-    (1, 'omari@gmail.com', 'sesame'),
-    (2, 'josh@gmail.com', 'sesame'),
-    (3, 'monzur@gmail.com', 'sesame');
-
 CREATE TABLE orders (
-    ID int NOT NULL AUTO_INCREMENT,
-    userID int NOT NULL,
-    itemID int NOT NULL,
-    itemName varchar(50) NOT NULL,
-    itemPrice float(5) NOT NULL,
-    quantity int NOT NULL,
-    PRIMARY KEY (ID)
+    Id int NOT NULL AUTO_INCREMENT,
+    TotalPrice float(7) NOT NULL,
+    PRIMARY KEY (Id)
 );
 
+CREATE TABLE orderItems (
+    Id int NOT NULL AUTO_INCREMENT,
+    itemId int NOT NULL,
+    orderId int NOT NULL,
+    quantity int NOT NULL,
+    PRIMARY KEY (Id)
+);
 -- Create a user named db_user
 GRANT SELECT, INSERT, UPDATE, DELETE
 ON *
