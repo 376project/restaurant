@@ -1,0 +1,29 @@
+<h1>Order Detail</h1>
+
+<p *ngIf="!products"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="products">
+    <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td><img src="{{product.imageUrl}}" style="width:50px;height:50px;"></td>
+        <td>{{ product.title}}</td>
+        <td>{{ product.descript }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+         {{product.quantity}}
+        </td>
+        <td>{{product.totalPrice}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Total: {{getTotal()|currency}}</h2>
