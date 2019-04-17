@@ -126,6 +126,7 @@ INSERT INTO drinks VALUES
 CREATE TABLE orders (
     Id int NOT NULL AUTO_INCREMENT,
     TotalPrice float(7) NOT NULL,
+    CustomerName varchar(100) NOT NULL,
     PRIMARY KEY (Id)
 );
 
