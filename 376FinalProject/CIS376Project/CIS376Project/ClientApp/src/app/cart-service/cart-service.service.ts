@@ -24,6 +24,13 @@ export class CartService {
      console.log(this.cartProducts);
    }
    placeOrder(customerName:string){
+     for(let product of this.cartProducts)
+     {
+       if(product.quantity==null)
+       {
+         product.quantity=0;
+       }
+     }
      let order:Order = new Order();
      order.cartProducts = this.cartProducts;
      order.customerName=customerName;
@@ -31,6 +38,15 @@ export class CartService {
        this.cartProducts=new Array();
        alert("Order has been placed");
     }, error => console.error(error));
+   }
+   getTotalQuantity():number
+   {
+     let totalQuantity:number = 0;
+     for(let product of this.cartProducts)
+     {
+       totalQuantity+=Number(product.quantity);
+     }
+     return totalQuantity;
    }
 }
 class Order{

@@ -27,7 +27,7 @@
             <a class="nav-link text-dark" [routerLink]='["/desserts"]'>Desserts</a>
           </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
-              <a class="nav-link text-dark" [routerLink]='["/cart"]'>Cart</a>
+              <a class="nav-link text-dark" [routerLink]='["/cart"]'>Cart({{cartService.getTotalQuantity()}})</a>
             </li>
         </ul>
       </div>
